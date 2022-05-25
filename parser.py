@@ -1,5 +1,4 @@
 import configparser
-import os
 import subprocess
 
 
@@ -34,7 +33,8 @@ class Parser:
         return users
 
     def GetShares(self):
-        shares = filter(lambda s: s not in ['global', 'homes', 'printers'], self.config.sections())
+        filtro = ['global', 'homes', 'printers', 'netlogon', 'profiles', 'pdf-documents', 'pdf-printer']
+        shares = filter(lambda s: s not in filtro, self.config.sections())
         sharesinfo = {}
         for share in list(shares):
             sharesinfo[share] = self.config[share]['path']

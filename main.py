@@ -1,4 +1,3 @@
-import parser
 import sys
 from PyQt6 import QtWidgets
 import os
@@ -7,8 +6,6 @@ from vistas.VentanaPrincipal import VentanaPrincipal
 
 if __name__ == "__main__":
     elevate()
-    parser = parser.Parser()
-    print(parser.GetUsers())
     os.system('xhost +si:localuser:root')
     os.environ['DISPLAY'] = ":0"
     os.environ['XAUTHORITY'] = '~/.Xauthority'
