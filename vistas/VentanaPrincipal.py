@@ -1,4 +1,3 @@
-from PyQt6 import QtWidgets
 from PyQt6.QtCore import pyqtSlot
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtWidgets import QMainWindow, QMessageBox
@@ -58,10 +57,3 @@ class VentanaPrincipal(QMainWindow, Ui_MainWindow):
         self.tableView.setModel(model)
 
 
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    v = VentanaPrincipal()
-    v.show()
-    sys.exit(app.exec())

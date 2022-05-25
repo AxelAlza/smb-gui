@@ -3,7 +3,7 @@ import os
 
 
 class Parser:
-    path = 'C:\\Users\\Axel Alza\\Desktop\\parser\\smb.conf'
+    path = '/etc/samba/smb.conf'
     config = configparser.ConfigParser()
 
     def __init__(self):
