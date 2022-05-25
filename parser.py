@@ -1,5 +1,6 @@
 import configparser
 import os
+import subprocess
 
 
 class Parser:
@@ -23,6 +24,14 @@ class Parser:
         self.config.remove_section(nombre)
         with open(self.path, 'w') as file:
             self.config.write(file)
+
+    def GetUsers(self):
+        users = []
+        result = subprocess.check_output("pdbedit -L | awk -F: 'NF>=3'", shell=True)
+        output = result.decode("utf-8")
+        for i in output.splitlines():
+            users.append(i.split(':')[0])
+        return users
 
     def GetShares(self):
         shares = filter(lambda s: s not in ['global', 'homes', 'printers'], self.config.sections())
